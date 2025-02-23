@@ -1,0 +1,39 @@
+<!-- recommendations.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Recommendations</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Vehicle Recommendations</h1>
+
+    {% if recommendations %}
+        <table border="1" style="width: 100%; text-align: left;">
+            <thead>
+                <tr>
+                    <th>Make</th>
+                    <th>Engine Size (L)</th>
+                    <th>Fuel Consumption (L/100 km)</th>
+                    <th>CO2 Emissions (g/km)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rec in recommendations %}
+                    <tr>
+                        <td>{{ rec['MAKE'] }}</td>
+                        <td>{{ rec['ENGINE SIZE'] }}</td>
+                        <td>{{ rec['FUEL CONSUMPTION'] }}</td>
+                        <td>{{ rec['COEMISSIONS'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No recommendations match your criteria. Please try again.</p>
+    {% endif %}
+
+    <a href="/">Back to Dashboard</a>
+</body>
+</html>
